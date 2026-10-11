@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>演出カタログ</title>
+<style>
+:root { --bg:#faf7f3; --panel:#fff; --ink:#1f1b18; --mute:#7a716a; --line:#e7dfd6; --brand:#EA6A24; --brand-dk:#B8460F; }
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.7 "Hiragino Sans","Noto Sans JP",sans-serif; }
+header { padding:36px 32px 12px; max-width:1500px; margin:0 auto; }
+h1 { font:700 30px/1.3 "Hiragino Mincho ProN",serif; margin:0 0 6px; }
+header p { margin:0; color:var(--mute); max-width:70ch; }
+.filters { display:flex; gap:8px; margin-top:18px; flex-wrap:wrap; }
+.filters button { border:1px solid var(--line); background:var(--panel); border-radius:999px; padding:6px 16px; font:inherit; cursor:pointer; color:var(--ink); }
+.filters button.on { background:var(--brand); border-color:var(--brand); color:#fff; }
+main { display:grid; grid-template-columns:repeat(auto-fill,minmax(520px,1fr)); gap:22px; padding:16px 32px 60px; max-width:1500px; margin:0 auto; }
+.card { background:var(--panel); border:1px solid var(--line); border-radius:14px; overflow:hidden; display:flex; flex-direction:column; }
+.media { position:relative; background:#000; aspect-ratio:16/9; }
+.media video { width:100%; height:100%; display:block; }
+.play { position:absolute; right:12px; top:12px; border:0; border-radius:999px; background:rgba(20,16,12,.78); color:#fff; padding:8px 16px; font:inherit; font-size:13px; cursor:pointer; }
+.media.playing .play { display:none; }
+.body { padding:16px 20px 20px; }
+h2 { font-size:21px; margin:0 0 4px; display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; }
+h2 code { font:12px ui-monospace,Menlo,monospace; color:var(--brand-dk); background:#fdeee3; padding:2px 8px; border-radius:6px; }
+.want { margin:0 0 14px; font-size:15px; color:var(--brand-dk); font-weight:600; }
+dl { display:grid; grid-template-columns:92px 1fr; gap:8px 12px; margin:0; font-size:14px; }
+dt { color:var(--mute); } dd { margin:0; min-width:0; }
+.swatch { margin-top:6px; background:#8a8a8a; border-radius:8px; padding:8px; display:flex; justify-content:center; }
+.swatch img { max-width:100%; max-height:84px; display:block; }
+.se { border:1px solid var(--brand); color:var(--brand-dk); background:#fff; border-radius:999px; padding:3px 14px; font:inherit; font-size:13px; cursor:pointer; }
+.se:hover { background:#fdeee3; }
+.none { color:var(--mute); }
+.selink { color:var(--brand-dk); font-size:13px; }
+footer { max-width:1500px; margin:0 auto; padding:0 32px 48px; color:var(--mute); font-size:13px; }
+@media (max-width:600px) { main { grid-template-columns:1fr; padding:12px 16px 40px; } header { padding:24px 16px 8px; } }
+</style></head>
+<body>
+<header>
+  <h1>演出カタログ</h1>
+  <p>感情 = その瞬間に、視聴者にどういう気持ちになってほしいか。台本の1文に感情を1つ選ぶと、テロップ・登場の動き・効果音・映像の扱いが1セットで決まります。各カードの動画は、人物をダミーに置き換えたサンプルでの実例です(音なし)。効果音は、効果音ラボの素材名と素材ページへのリンクを載せています。</p>
+  <div class="filters"><button data-f="all" class="on">すべて(10)</button><button data-f="moves">映像が動くもの</button><button data-f="se">効果音があるもの</button></div>
+</header>
+<main>
+<article class="card" data-moves="0" data-se="0">
+  <div class="media"><video src="clips/flat.mp4" poster="clips/flat.jpg" preload="none" playsinline></video><button class="play" aria-label="再生">▶ 実例を再生(音なし)</button></div>
+  <div class="body">
+    <h2>平常<code>flat</code></h2>
+    <p class="want">落ち着いて話を追ってほしい</p>
+    <dl>
+      <dt>使いどころ</dt><dd>説明やつなぎの文。気持ちを動かす必要がないところ</dd>
+      <dt>テロップ</dt><dd>黒70%帯+細め白ゴシック(小)<div class="swatch"><img src="telops/flat.png" alt=""></div></dd>
+      <dt>配置</dt><dd>下中央・黒70%の帯</dd>
+      <dt>登場の動き</dt><dd>カット(即表示)</dd>
+      <dt>効果音</dt><dd><span class="none">なし</span></dd>
+      <dt>映像の扱い</dt><dd class="none">動かさない</dd>
+    </dl>
+  </div>
+</article>
+<article class="card" data-moves="1" data-se="1">
+  <div class="media"><video src="clips/excite.mp4" poster="clips/excite.jpg" preload="none" playsinline></video><button class="play" aria-label="再生">▶ 実例を再生(音なし)</button></div>
+  <div class="body">
+    <h2>期待・高揚<code>excite</code></h2>
+    <p class="want">「おっ」と前のめりになってほしい</p>
+    <dl>
+      <dt>使いどころ</dt><dd>いちばん伝えたい一文。テーマの提示、結論、強く言い切る言葉</dd>
+      <dt>テロップ</dt><dd>赤明朝+白縁+黄グロー<div class="swatch"><img src="telops/excite.png" alt=""></div></dd>
+      <dt>配置</dt><dd>下中央1〜2行(2行は同サイズ)</dd>
+      <dt>登場の動き</dt><dd>白く光って定着0.35秒</dd>
+      <dt>効果音</dt><dd>キラッ2<br><a class="selink" href="https://soundeffect-lab.info/sound/anime/" target="_blank" rel="noopener">効果音ラボ「演出・アニメ」のページで聴く ↗</a></dd>
+      <dt>映像の扱い</dt><dd class="">パッと寄る(1.12倍・動きなしで切り替え)→そのまま</dd>
+    </dl>
+  </div>
+</article>
+<article class="card" data-moves="1" data-se="1">
+  <div class="media"><video src="clips/trust.mp4" poster="clips/trust.jpg" preload="none" playsinline></video><button class="play" aria-label="再生">▶ 実例を再生(音なし)</button></div>
+  <div class="body">
+    <h2>信頼・納得<code>trust</code></h2>
+    <p class="want">「それなら任せられる」と信じてほしい</p>
+    <dl>
+      <dt>使いどころ</dt><dd>根拠や仕組み、誰が・何がやるのかを示す文</dd>
+      <dt>テロップ</dt><dd>黄→水色の装甲明朝+青縁グロー<div class="swatch"><img src="telops/trust.png" alt=""></div></dd>
+      <dt>配置</dt><dd>下中央1行</dd>
+      <dt>登場の動き</dt><dd>左から横ブレで定着0.28秒</dd>
+      <dt>効果音</dt><dd>きらーん1<br><a class="selink" href="https://soundeffect-lab.info/sound/anime/" target="_blank" rel="noopener">効果音ラボ「演出・アニメ」のページで聴く ↗</a></dd>
+      <dt>映像の扱い</dt><dd class="">パッと寄る(1.12倍・動きなしで切り替え)→そのまま</dd>
+    </dl>
+  </div>
+</article>
+<article class="card" data-moves="1" data-se="1">
+  <div class="media"><video src="clips/relief.mp4" poster="clips/relief.jpg" preload="none" playsinline></video><button class="play" aria-label="再生">▶ 実例を再生(音なし)</button></div>
+  <div class="body">
+    <h2>安心・希望<code>relief</code></h2>
+    <p class="want">「自分にもできそう」「良くなりそう」と思ってほしい</p>
+    <dl>
+      <dt>使いどころ</dt><dd>得られる良い結果や変化を伝える文</dd>
+      <dt>テロップ</dt><dd>ピンク明朝+白縁+黄グロー<div class="swatch"><img src="telops/relief.png" alt=""></div></dd>
+      <dt>配置</dt><dd>下中央1〜2行</dd>
+      <dt>登場の動き</dt><dd>白く光って定着0.35秒</dd>
+      <dt>効果音</dt><dd>キラッ1<br><a class="selink" href="https://soundeffect-lab.info/sound/anime/" target="_blank" rel="noopener">効果音ラボ「演出・アニメ」のページで聴く ↗</a></dd>
+      <dt>映像の扱い</dt><dd class="">パッと寄る(1.12倍・動きなしで切り替え)→そのまま</dd>
+    </dl>
+  </div>
+</article>
+<article class="card" data-moves="0" data-se="1">
+  <div class="media"><video src="clips/curious.mp4" poster="clips/curious.jpg" preload="none" playsinline></video><button class="play" aria-label="再生">▶ 実例を再生(音なし)</button></div>
+  <div class="body">
+    <h2>興味・自問<code>curious</code></h2>
+    <p class="want">「どうなんだろう」と続きを気にしてほしい</p>
+    <dl>
+      <dt>使いどころ</dt><dd>問いかけ、間を置く静かな一言</dd>
+      <dt>テロップ</dt><dd>白明朝+黒縁<div class="swatch"><img src="telops/curious.png" alt=""></div></dd>
+      <dt>配置</dt><dd>人物の左に2行、または下中央</dd>
+      <dt>登場の動き</dt><dd>フェード0.2秒</dd>
+      <dt>効果音</dt><dd>決定ボタンを押す13<br><a class="selink" href="https://soundeffect-lab.info/sound/button/" target="_blank" rel="noopener">効果音ラボ「ボタン・システム音」のページで聴く ↗</a></dd>
+      <dt>映像の扱い</dt><dd class="none">動かさない</dd>
+    </dl>
+  </div>
+</article>
+<article class="card" data-moves="1" data-se="1">
+  <div class="media"><video src="clips/anxiety.mp4" poster="clips/anxiety.jpg" preload="none" playsinline></video><button class="play" aria-label="再生">▶ 実例を再生(音なし)</button></div>
+  <div class="body">
+    <h2>不安・共感<code>anxiety</code></h2>
+    <p class="want">「それ、困るよね」と自分ごとにしてほしい</p>
+    <dl>
+      <dt>使いどころ</dt><dd>困りごとやリスクを言う文</dd>
+      <dt>テロップ</dt><dd>赤グラデの装甲明朝(斜体)+細い白縁<div class="swatch"><img src="telops/anxiety.png" alt=""></div></dd>
+      <dt>配置</dt><dd>下中央2行</dd>
+      <dt>登場の動き</dt><dd>カット(即表示)</dd>
+      <dt>効果音</dt><dd>ショック2<br><a class="selink" href="https://soundeffect-lab.info/sound/anime/" target="_blank" rel="noopener">効果音ラボ「演出・アニメ」のページで聴く ↗</a></dd>
+      <dt>映像の扱い</dt><dd class="">白黒+寄りからゆっくり引く</dd>
+    </dl>
+  </div>
+</article>
+<article class="card" data-moves="1" data-se="1">
+  <div class="media"><video src="clips/burden.mp4" poster="clips/burden.jpg" preload="none" playsinline></video><button class="play" aria-label="再生">▶ 実例を再生(音なし)</button></div>
+  <div class="body">
+    <h2>負担感・うんざり<code>burden</code></h2>
+    <p class="want">「そんなにあるのか」と重さを感じてほしい</p>
+    <dl>
+      <dt>使いどころ</dt><dd>困りごとを畳みかけて並べるところ</dd>
+      <dt>テロップ</dt><dd>青グラデの装甲明朝(斜体)+細い白縁<div class="swatch"><img src="telops/burden.png" alt=""></div></dd>
+      <dt>配置</dt><dd>左に縦積み(発話ごとに1行ずつ)</dd>
+      <dt>登場の動き</dt><dd>カット(即表示)</dd>
+      <dt>効果音</dt><dd>涙のしずく(最初の1回)<br><a class="selink" href="https://soundeffect-lab.info/sound/anime/" target="_blank" rel="noopener">効果音ラボ「演出・アニメ」のページで聴く ↗</a></dd>
+      <dt>映像の扱い</dt><dd class="">人物を右に寄せたクローズアップにパッと切り替え(1.3倍)</dd>
+    </dl>
+  </div>
+</article>
+<article class="card" data-moves="1" data-se="1">
+  <div class="media"><video src="clips/clarity.mp4" poster="clips/clarity.jpg" preload="none" playsinline></video><button class="play" aria-label="再生">▶ 実例を再生(音なし)</button></div>
+  <div class="body">
+    <h2>整理・理解<code>clarity</code></h2>
+    <p class="want">「なるほど、整理できた」と思ってほしい</p>
+    <dl>
+      <dt>使いどころ</dt><dd>項目や手順を並べるところ</dd>
+      <dt>テロップ</dt><dd>濃いグレー帯+白ゴシック(斜体)<div class="swatch"><img src="telops/clarity.png" alt=""></div></dd>
+      <dt>配置</dt><dd>濃いグレー帯を左に縦積み(発話ごとに1個ずつ)</dd>
+      <dt>登場の動き</dt><dd>左から横ブレで定着0.28秒</dd>
+      <dt>効果音</dt><dd>決定ボタンを押す1(1個ごと)<br><a class="selink" href="https://soundeffect-lab.info/sound/button/" target="_blank" rel="noopener">効果音ラボ「ボタン・システム音」のページで聴く ↗</a></dd>
+      <dt>映像の扱い</dt><dd class="">人物を右に寄せたクローズアップにパッと切り替え(1.3倍)</dd>
+    </dl>
+  </div>
+</article>
+<article class="card" data-moves="0" data-se="1">
+  <div class="media"><video src="clips/proof.mp4" poster="clips/proof.jpg" preload="none" playsinline></video><button class="play" aria-label="再生">▶ 実例を再生(音なし)</button></div>
+  <div class="body">
+    <h2>実感・説得<code>proof</code></h2>
+    <p class="want">「本当にやったんだ」と受け止めてほしい</p>
+    <dl>
+      <dt>使いどころ</dt><dd>実際にやったこと、出た結果を報告する文</dd>
+      <dt>テロップ</dt><dd>白ゴシック+赤縁<div class="swatch"><img src="telops/proof.png" alt=""></div></dd>
+      <dt>配置</dt><dd>下中央1行</dd>
+      <dt>登場の動き</dt><dd>カット(即表示)</dd>
+      <dt>効果音</dt><dd>ラッパのファンファーレ<br><a class="selink" href="https://soundeffect-lab.info/sound/anime/" target="_blank" rel="noopener">効果音ラボ「演出・アニメ」のページで聴く ↗</a></dd>
+      <dt>映像の扱い</dt><dd class="none">動かさない</dd>
+    </dl>
+  </div>
+</article>
+<article class="card" data-moves="1" data-se="1">
+  <div class="media"><video src="clips/chapter.mp4" poster="clips/chapter.jpg" preload="none" playsinline></video><button class="play" aria-label="再生">▶ 実例を再生(音なし)</button></div>
+  <div class="body">
+    <h2>切り替え<code>chapter</code></h2>
+    <p class="want">「ここから話が変わる」と気持ちを切り替えてほしい</p>
+    <dl>
+      <dt>使いどころ</dt><dd>話題が変わる直前</dd>
+      <dt>テロップ</dt><dd>生成画像の背景にブランド色を重ね、中央の白帯にブランド色のタイトル(約1.9秒)</dd>
+      <dt>配置</dt><dd>全画面</dd>
+      <dt>登場の動き</dt><dd>帯が横に開く+タイトルがふわっと出る</dd>
+      <dt>効果音</dt><dd>決定ボタンを押す3<br><a class="selink" href="https://soundeffect-lab.info/sound/button/" target="_blank" rel="noopener">効果音ラボ「ボタン・システム音」のページで聴く ↗</a></dd>
+      <dt>映像の扱い</dt><dd class="">背景がゆっくり縮む</dd>
+    </dl>
+  </div>
+</article>
+</main>
+<footer>効果音: <a href="https://soundeffect-lab.info/" target="_blank" rel="noopener">効果音ラボ</a> の素材を使用(このページには音のファイルは置いていません)。テロップの書体: 装甲明朝(フロップデザイン、SIL OFL)、凸版文久見出し明朝、ヒラギノ角ゴシック、Noto Sans JP(SIL OFL)。</footer>
+<script>
+document.querySelectorAll('.media').forEach(m => {
+  const v = m.querySelector('video');
+  const go = () => { document.querySelectorAll('video').forEach(o => { if (o !== v) o.pause(); }); v.currentTime = 0; v.play(); };
+  m.querySelector('.play').onclick = go; v.onclick = () => v.paused ? go() : v.pause();
+  v.onplay = () => m.classList.add('playing'); v.onpause = v.onended = () => m.classList.remove('playing');
+});
+let cur; document.querySelectorAll('.se').forEach(b => b.onclick = () => { if (cur) cur.pause(); cur = new Audio(b.dataset.se); cur.play(); });
+document.querySelectorAll('.filters button').forEach(b => b.onclick = () => {
+  document.querySelectorAll('.filters button').forEach(x => x.classList.toggle('on', x === b));
+  document.querySelectorAll('.card').forEach(c => c.style.display = b.dataset.f === 'all' || c.dataset[b.dataset.f] === '1' ? '' : 'none');
+});
+</script>
+</body></html>
